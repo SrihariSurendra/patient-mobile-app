@@ -8,11 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ContactAdministratorComponent } from './contact-administrator/contact-administrator.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    ContactAdministratorComponent
   ],
   providers: [MatDatepickerModule, DatePipe],
   imports: [

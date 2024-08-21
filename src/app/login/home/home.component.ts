@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { ConfigService } from 'src/app/services/config.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 declare var $: any;
 
@@ -33,21 +34,42 @@ export const MY_FORMATS = {
   ],
 })
 export class HomeComponent implements OnInit {
-  FetchConsultationOrderTokenumberDataList: any;
-  constructor(private config: ConfigService) {
+  tokenData: any = [];
+  tokenNumber: string | null = null;
+  hospitalID: string | null = null;
+  constructor(private config: ConfigService, private route: ActivatedRoute, private router: Router) {
 
   }
 
   ngOnInit(): void {
-    this.FetchConsultationOrderTokenumber("W76-01", "3");
+    this.route.queryParams.subscribe(params => {
+      const normalizedParams = Object.keys(params).reduce((acc, key) => {
+        acc[key.toLowerCase()] = params[key];
+        return acc;
+      }, {} as { [key: string]: string });
+
+      this.tokenNumber = normalizedParams['tokennumber'] || null;
+      this.hospitalID = normalizedParams['hospitalid'] || null;
+
+      if(!this.tokenNumber || !this.hospitalID) {
+        this.router.navigate(['home/contact-administrator']);
+      }
+
+      this.FetchConsultationOrderTokenumber(this.tokenNumber, this.hospitalID);
+    });
+   
   }
 
   FetchConsultationOrderTokenumber(token: any, hospitalID: any) {
     this.config.FetchConsultationOrderTokenumber(token, hospitalID)
       .subscribe((response: any) => {
         if (response.Code == 200) {
-          this.FetchConsultationOrderTokenumberDataList = response.FetchConsultationOrderTokenumberDataList;
-          console.log(this.FetchConsultationOrderTokenumberDataList);
+          if(response.FetchConsultationOrderTokenumberDataList.length > 0) {
+            this.tokenData = response.FetchConsultationOrderTokenumberDataList[0];
+          }
+          else {
+            this.router.navigate(['home/contact-administrator']);
+          }
         }
       },
         (err) => {
