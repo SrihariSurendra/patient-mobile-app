@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ConfigService } from 'src/app/services/config.service';
 
 declare var $: any;
 
@@ -31,6 +32,26 @@ export const MY_FORMATS = {
     DatePipe,
   ],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  FetchConsultationOrderTokenumberDataList: any;
+  constructor(private config: ConfigService) {
+
+  }
+
+  ngOnInit(): void {
+    this.FetchConsultationOrderTokenumber("W76-01", "3");
+  }
+
+  FetchConsultationOrderTokenumber(token: any, hospitalID: any) {
+    this.config.FetchConsultationOrderTokenumber(token, hospitalID)
+      .subscribe((response: any) => {
+        if (response.Code == 200) {
+          this.FetchConsultationOrderTokenumberDataList = response.FetchConsultationOrderTokenumberDataList;
+          console.log(this.FetchConsultationOrderTokenumberDataList);
+        }
+      },
+        (err) => {
+        })
+  }
   
 }
