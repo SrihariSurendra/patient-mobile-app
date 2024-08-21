@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, forkJoin } from 'rxjs';
-import { PatientAlertsComponent } from './patient-alerts/patient-alerts.component';
 
 @Injectable({
   providedIn: 'root'

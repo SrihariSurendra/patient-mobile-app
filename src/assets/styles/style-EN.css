@@ -10640,7 +10640,7 @@ td.active .social_icon{
 }
 .worklistHeight{
   /* height: 90%; */
-  height: calc(100vh - 11.4rem);
+  height: calc(100vh - 9rem);
   overflow: auto;
 }
 .worklistHeight::-webkit-scrollbar{
@@ -10687,34 +10687,7 @@ td.active .social_icon{
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);
   min-width: 12rem;
 }
-.worklist_legends .legends span{
-  width: 0.75rem;
-  min-width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-  display: block;
-}
-.worklist_legends .legends span.newReq{
- background-color: #F592EC;
-}
-.worklist_legends .legends span.SampleCollected{
-  background-color: #C896C8;
-}
-.worklist_legends .legends span.SampleAck{
-  background-color: #00AEAE;
-}
-.worklist_legends .legends span.ResultEntered{
-  background-color: #A7AC9B;
-}
-.worklist_legends .legends span.ResultVerified{
-  background-color: #21DA41;
-}
-.worklist_legends .legends span.SampleRejected{
-  background-color: #FF8040;
-}
-.worklist_legends .legends span.TestRecollect{
-  background-color: #FF8080;
-}
+
 /* .worklistHeight .worklist_card .NewRequest{
   height: 100%;
   width: 2px;
@@ -13894,7 +13867,7 @@ span.upcomingCount{
   width: 0;
 }
 .surgerynote_page{
-  height: calc(100vh - 11.7rem);
+  height: calc(100vh - 14rem);
   overflow: auto;
 }
 .surgerynote_page::-webkit-scrollbar{
@@ -14349,19 +14322,13 @@ span.upcomingCount{
   color: #8B5C39;
 }
 .vte_view_modal .modal-dialog{
-  max-width: 99% !important;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  max-width: 90% !important;
 }
 .vte_view_modal .modal-dialog .card.card-style-1.mt-3 {
   margin: 1rem;
 }
 .vte_view_modal .modal-dialog .vteform_height {
   height: calc(100vh - 10rem);
-  overflow: auto;
-}
-.vte_view_modal .modal-dialog .initial_medical_page {
-  height: calc(100vh - 7.7rem);
   overflow: auto;
 }
 .DiagnosisDoctordiv .btn-icon-3d{
@@ -16477,7 +16444,6 @@ app-generic-close .modal-header{
 }
 .select_time select{
   width: 4rem;
-  padding: 0.275rem 0.35rem;
 }
 .select_time select:first-child{
   border-right: 0;
@@ -16583,8 +16549,7 @@ app-generic-close .modal-header{
 }
 .surgeon_signature_grid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.5rem;
 }
 .surgeon_signature_grid .add_more{
@@ -16596,14 +16561,52 @@ app-generic-close .modal-header{
   overflow: unset;
 }
 
-#assessmentTab .fixed_alter_list .fixed_alter_body{
-  height: calc(100vh - 25rem) !important;
+/* Mobile Print */
+.mobile_print{
+  max-width: 1024px;
+  margin: 0 auto;
+  /* border-radius: 5rem; */
+  background-color: #69BAC9;
+  /* margin-left: 0; */
+  /* margin-right: 0; */
+  min-height: 100vh;
 }
-
-.ot_dashboard_page{
-  height: calc(100vh - 11.4rem);
-  overflow: auto;
+.mobile_print .mbl_header{
+  padding: 1rem;
+  background-color: #ECF6F8;
+  border-radius: 0 0 1rem 1rem;
+  position: sticky;
+  top:0;
 }
-.ot_dashboard_page::-webkit-scrollbar{
-  width: 0;
+.mobile_print .mbl_header_logo img{
+  width: 200px;
+}
+.mobile_print .token_header{
+  box-shadow: 0px 16px 32px -4px #0C0C0D1A;
+  padding:  1rem;  
+  border-radius: 0.5rem;
+  background-color: #fff;
+  margin-bottom: -2.5rem;
+}
+.mobile_print .token_header .badge{
+  background-color: #FF9500;
+  border-radius: 1rem;
+  padding: 0.3rem 1rem;
+}
+.mobile_print .detail_card{
+  box-shadow: 0px 16px 32px -4px #0C0C0D1A;
+  padding: 0.75rem;
+  background-color: #fff;
+  padding-top: 0 !important;
+}
+.mobile_print .detail_card .head_label{
+  /* margin-top: -1.6rem; */
+}
+.mobile_print .detail_card .head_label p{
+ background-color: #43A9BC;
+ padding: 0.4rem 1.15rem;
+ border-radius: 0 0 0.6rem 0.6rem;
+}
+.mobile_print .detail_card .head_label.consult p{
+ background-color: #6677CC;
 }
