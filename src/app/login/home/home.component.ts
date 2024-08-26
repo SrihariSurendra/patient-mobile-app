@@ -75,5 +75,21 @@ export class HomeComponent implements OnInit {
         (err) => {
         })
   }
+
+  opbillprint() {
+    this.config.opbillprint(this.tokenData.BillID, this.hospitalID ? this.hospitalID : "3")
+      .subscribe((response: any) => {
+        if (response.Code == 200) {
+          if(response.FetchConsultationOrderTokenumberDataList.length > 0) {
+            this.tokenData = response.FetchConsultationOrderTokenumberDataList[0];
+          }
+          else {
+            this.router.navigate(['home/contact-administrator']);
+          }
+        }
+      },
+        (err) => {
+        })
+  }
   
 }

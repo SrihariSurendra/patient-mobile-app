@@ -8,7 +8,7 @@
                 <p class="clr-primary-600 m-0 fw-bold">Token No</p>
                 <span class="badge ">{{tokenData.TokenNumber}}</span>
             </div>
-            <button class="btn btn-main-outline fs-8">Bill Print</button>
+            <button class="btn btn-main-outline fs-8" [disabled]="!this.tokenData?.BillID" (click)="opbillprint()">Bill Print</button>
         </div>
     </div>
     <div class="mt-5 p-3">

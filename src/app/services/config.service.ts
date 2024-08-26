@@ -71,4 +71,8 @@ export class ConfigService {
   FetchConsultationOrderTokenumber(BIllID:string, HospitalID:string) {
     return this.https.get<any>(this.devApiUrl + '/FetchConsultationOrderTokenumber?BIllID='+ BIllID +'&HospitalID='+ HospitalID +'', this.httpOptions);    
   }
+
+  opbillprint(BIllID:string, HospitalID:string) {
+    return this.https.get<any>('http://172.18.17.219/rcmahhapi/OPBilling/opbillprint?billId='+ BIllID +'&hospitalId='+ HospitalID +'', this.httpOptions);    
+  }
 }
