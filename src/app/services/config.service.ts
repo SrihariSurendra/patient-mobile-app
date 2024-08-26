@@ -68,7 +68,7 @@ export class ConfigService {
     return this.langData;
   }
 
-  FetchConsultationOrderTokenumber(TokenNumber:string, HospitalID:string) {
-    return this.https.get<any>(this.devApiUrl + '/FetchConsultationOrderTokenumber?TokenNumber='+ TokenNumber +'&HospitalID='+ HospitalID +'', this.httpOptions);    
+  FetchConsultationOrderTokenumber(BIllID:string, HospitalID:string) {
+    return this.https.get<any>(this.devApiUrl + '/FetchConsultationOrderTokenumber?BIllID='+ BIllID +'&HospitalID='+ HospitalID +'', this.httpOptions);    
   }
 }

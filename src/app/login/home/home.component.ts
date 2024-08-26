@@ -35,7 +35,7 @@ export const MY_FORMATS = {
 })
 export class HomeComponent implements OnInit {
   tokenData: any = [];
-  tokenNumber: string | null = null;
+  billID: string | null = null;
   hospitalID: string | null = null;
   constructor(private config: ConfigService, private route: ActivatedRoute, private router: Router) {
 
@@ -48,20 +48,20 @@ export class HomeComponent implements OnInit {
         return acc;
       }, {} as { [key: string]: string });
 
-      this.tokenNumber = normalizedParams['tokennumber'] || null;
+      this.billID = normalizedParams['billid'] || null;
       this.hospitalID = normalizedParams['hospitalid'] || null;
 
-      if(!this.tokenNumber || !this.hospitalID) {
+      if(!this.billID || !this.hospitalID) {
         this.router.navigate(['home/contact-administrator']);
       }
 
-      this.FetchConsultationOrderTokenumber(this.tokenNumber, this.hospitalID);
+      this.FetchConsultationOrderTokenumber(this.billID, this.hospitalID);
     });
    
   }
 
-  FetchConsultationOrderTokenumber(token: any, hospitalID: any) {
-    this.config.FetchConsultationOrderTokenumber(token, hospitalID)
+  FetchConsultationOrderTokenumber(billID: any, hospitalID: any) {
+    this.config.FetchConsultationOrderTokenumber(billID, hospitalID)
       .subscribe((response: any) => {
         if (response.Code == 200) {
           if(response.FetchConsultationOrderTokenumberDataList.length > 0) {
