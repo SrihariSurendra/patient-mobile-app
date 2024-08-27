@@ -78,18 +78,20 @@ export class HomeComponent implements OnInit {
 
   opbillprint() {
     this.config.opbillprint(this.tokenData.BillID, this.hospitalID ? this.hospitalID : "3")
-      .subscribe((response: any) => {
-        if (response.Code == 200) {
-          if(response.FetchConsultationOrderTokenumberDataList.length > 0) {
-            this.tokenData = response.FetchConsultationOrderTokenumberDataList[0];
-          }
-          else {
-            this.router.navigate(['home/contact-administrator']);
-          }
-        }
+      .subscribe(response => {
+        this.handlePdfResponse(response);
       },
         (err) => {
         })
+  }
+
+  handlePdfResponse(pdfBlob: Blob) {
+    const blobUrl = URL.createObjectURL(pdfBlob);
+    this.openPdf(blobUrl);
+  }
+
+  openPdf(blobUrl: string) {
+    window.open(blobUrl, '_blank', 'location=no');
   }
   
 }

@@ -73,6 +73,6 @@ export class ConfigService {
   }
 
   opbillprint(BIllID:string, HospitalID:string) {
-    return this.https.get<any>('http://172.18.17.219/rcmahhapi/OPBilling/opbillprint?billId='+ BIllID +'&hospitalId='+ HospitalID +'', this.httpOptions);    
+    return this.https.get('http://172.18.17.219/rcmahhapi/OPBilling/opbillprint?billId='+ BIllID +'&hospitalId='+ HospitalID +'', { responseType: 'blob' });    
   }
 }
