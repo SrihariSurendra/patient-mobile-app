@@ -1,5 +1,5 @@
 {
-  "name": "self-service",
+  "name": "patient-mobile-self-service",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

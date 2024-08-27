@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "self-service": {
+    "patient-mobile-self-service": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/self-service",
+            "outputPath": "dist/patient-mobile-self-service",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "self-service:build:production"
+              "browserTarget": "patient-mobile-self-service:build:production"
             },
             "development": {
-              "browserTarget": "self-service:build:development"
+              "browserTarget": "patient-mobile-self-service:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "self-service:build"
+            "browserTarget": "patient-mobile-self-service:build"
           }
         },
         "test": {

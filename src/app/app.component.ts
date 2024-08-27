@@ -14,7 +14,7 @@ import { LoaderService } from './services/loader.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'self-service';
+  title = 'patient-mobile-self-service';
   showSideBar: boolean = false;
   selectedLang: any;
   langData: any;
