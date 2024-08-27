@@ -6,8 +6,6 @@ export const environment = {
   production: false,
   paginationsize: 10,
   loaderExclude: [
-    'FetchItemDetails',
-    'FetchInstructionsToNurse'
   ]
 };
 
